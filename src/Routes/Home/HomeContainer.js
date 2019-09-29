@@ -22,6 +22,7 @@ export default class extends React.Component {
             const {
                 data:{results : upcoming}
             } = await moviesApi.upcoming();
+            // throw Error(); 에러 테스트용
             this.setState({
                 nowPlaying,
                 popular,
@@ -30,7 +31,7 @@ export default class extends React.Component {
         } catch {
             console.log("what Error? Sibsaekki");
             this.setState({
-                error:"Can't find movie information."
+                error:"Can't find movie information. 영화 없어 안농~"
             });
         } finally {
             this.setState({

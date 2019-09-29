@@ -15,14 +15,22 @@ export default class extends React.Component{
     //     this.handleSubmit();
     // }//시뮬레이션용
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();
         const {searchTerm} = this.state;
         if(searchTerm!=="") {
             this.searchByTerm();
-        } else {
-
-        }
+        } 
     }
+
+    updateTerm = (event) => {
+        const {target: {value}} =event;
+        this.setState({
+            searchTerm: value
+        });
+        console.log(value);
+    }
+
     // searchPresenter 에서 폼 만든것으로 search를 호출(인풋작성시) onSubmit
     // onSubmit="handleSubmit"으로 호출
 
@@ -30,13 +38,13 @@ export default class extends React.Component{
         const{searchTerm} = this.state;
         this.setState({loading:true});
         try{
+            // throw Error();
             const {
                 data:{results:movieResults}
             } = await moviesApi.search(searchTerm);
             const {
                 data:{results:tvResults}
             } = await tvApi.search(searchTerm);
-
             this.setState({
                 movieResults,
                 tvResults
@@ -63,6 +71,7 @@ export default class extends React.Component{
             searchTerm={searchTerm} 
             loading={loading}
             handleSubmit={this.handleSubmit}
+            updateTerm={this.updateTerm}
             />
         )
     }
