@@ -38,7 +38,6 @@ export default class extends React.Component{
         const{searchTerm} = this.state;
         this.setState({loading:true});
         try{
-            // throw Error();
             const {
                 data:{results:movieResults}
             } = await moviesApi.search(searchTerm);
@@ -49,13 +48,14 @@ export default class extends React.Component{
                 movieResults,
                 tvResults
             });
-
+            
+            // throw Error();
         } catch {
             console.log("what Error? Sibsaekki");
             this.setState({
                 error:"Can't find Results."
             });
-
+            
         } finally {
             this.setState({loading:false});
         }

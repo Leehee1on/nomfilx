@@ -19,7 +19,6 @@ export default class extends React.Component {
             const {
                 data: {results:popular}
             } = await tvApi.popular();
-            // throw Error();
             const {
                 data: {results:airingToday}
             } = await tvApi.airingToday();
@@ -28,6 +27,7 @@ export default class extends React.Component {
                 popular,
                 airingToday
             })
+            // throw Error();
         } catch {
             console.log("what Error? Sibsaekki");
             this.setState({
