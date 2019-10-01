@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
+
 import Loader from "Components/Loader";
 import Section from "Components/Section"
 import Message from "Components/Message";
@@ -16,7 +18,8 @@ const Form = styled.form `
 const Input = styled.input `
 	all:unset;
 	font-size: 28px;
-	width:100%;
+    width:100%;
+    
 `;
 // searchTerm을 value로 두는 이유는 searchContainer에서 값을 가져와서 표시해주려고(결과)
 const SearchPresenter = ({
@@ -28,6 +31,11 @@ const SearchPresenter = ({
     searchTerm,
     updateTerm
 }) => <Container>
+    <Helmet>
+        <title>Search | Nomfilx</title>
+        
+    </Helmet>
+
     <Form onSubmit={handleSubmit}>
         <Input
             placeholder="Search Movies or Tv Shows..?"

@@ -12,74 +12,85 @@ const Container = styled.div `
     padding:20px;
 `;
 
-const TVPresenter = ({topRated, popular, airingToday, error, loading}) => loading
-    ? (<Loader/>)
-    : (
-        <Container>
-            <Helmet>
-                <title>TV</title>
-            </Helmet>
-            {console.log(topRated.map(show => show.name))}
-            {
-                topRated && topRated.length > 0 && (
-                    <Section title="Top Rated Shows">
+const TVPresenter = ({topRated, popular, airingToday, error, loading}) => (
+    <>
+    <Helmet>
+        <title>
+            TV Shows | Nomfilx
+        </title>
+    </Helmet>
+        {
+            loading ? 
+            (<Loader/>)
+                : (
+                    <Container>
+                        <Helmet>
+                            <title>TV | Nomflix</title>
+                        </Helmet>
+                        {console.log(topRated.map(show => show.name))}
                         {
-                            topRated.map(show => (
-                                <Poster
-                                    key={show.id}
-                                    id={show.id}
-                                    title={show.original_name}
-                                    imageUrl={show.poster_path}
-                                    rating={show.vote_average}
-                                    year={show.first_air_date && show
-                                        .first_air_date
-                                        .substring(0, 4)}/>
-                            ))
+                            topRated && topRated.length > 0 && (
+                                <Section title="Top Rated Shows">
+                                    {
+                                        topRated.map(show => (
+                                            <Poster
+                                                key={show.id}
+                                                id={show.id}
+                                                title={show.original_name}
+                                                imageUrl={show.poster_path}
+                                                rating={show.vote_average}
+                                                year={show.first_air_date && show
+                                                    .first_air_date
+                                                    .substring(0, 4)}/>
+                                        ))
+                                    }
+                                </Section>
+                            )
                         }
-                    </Section>
-                )
-            }
-            {
-                popular && popular.length > 0 && (
-                    <Section title="popular Shows">
                         {
-                            popular.map(show => (
-                                <Poster
-                                    key={show.id}
-                                    id={show.id}
-                                    title={show.original_name}
-                                    imageUrl={show.poster_path}
-                                    rating={show.vote_average}
-                                    year={show.first_air_date && show
-                                        .first_air_date
-                                        .substring(0, 4)}/>
-                            ))
+                            popular && popular.length > 0 && (
+                                <Section title="popular Shows">
+                                    {
+                                        popular.map(show => (
+                                            <Poster
+                                                key={show.id}
+                                                id={show.id}
+                                                title={show.original_name}
+                                                imageUrl={show.poster_path}
+                                                rating={show.vote_average}
+                                                year={show.first_air_date && show
+                                                    .first_air_date
+                                                    .substring(0, 4)}/>
+                                        ))
+                                    }
+                                </Section>
+                            )
                         }
-                    </Section>
-                )
-            }
-            {
-                airingToday && airingToday.length > 0 && (
-                    <Section title="AiringToday Shows">
                         {
-                            airingToday.map(show => (
-                                <Poster
-                                    key={show.id}
-                                    id={show.id}
-                                    title={show.original_name}
-                                    imageUrl={show.poster_path}
-                                    rating={show.vote_average}
-                                    year={show.first_air_date && show
-                                        .first_air_date
-                                        .substring(0, 4)}/>
-                            ))
+                            airingToday && airingToday.length > 0 && (
+                                <Section title="AiringToday Shows">
+                                    {
+                                        airingToday.map(show => (
+                                            <Poster
+                                                key={show.id}
+                                                id={show.id}
+                                                title={show.original_name}
+                                                imageUrl={show.poster_path}
+                                                rating={show.vote_average}
+                                                year={show.first_air_date && show
+                                                    .first_air_date
+                                                    .substring(0, 4)}/>
+                                        ))
+                                    }
+                                </Section>
+                            )
                         }
-                    </Section>
+                        {error && <Message color="#e74c3c" text={error}/>}
+                    </Container>
                 )
-            }
-            {error && <Message color="#e74c3c" text={error}/>}
-        </Container>
-    );
+        }
+    </>
+)
 
 TVPresenter.propTypes = {
     topRated: PropTypes.array,
