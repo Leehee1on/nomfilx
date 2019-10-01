@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://Leehee1on.github.io/nomfilx",
+  "homepage": "https://leehee1on.github.io/nomfilx",
   "browserslist": {
     "production": [
       ">0.2%",
