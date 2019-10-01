@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/nomfilx/static/js/main.f77010f9.chunk.js",
+    "main.js.map": "/nomfilx/static/js/main.f77010f9.chunk.js.map",
+    "runtime-main.js": "/nomfilx/static/js/runtime-main.2b7d84bf.js",
+    "runtime-main.js.map": "/nomfilx/static/js/runtime-main.2b7d84bf.js.map",
+    "static/js/2.40f9f392.chunk.js": "/nomfilx/static/js/2.40f9f392.chunk.js",
+    "static/js/2.40f9f392.chunk.js.map": "/nomfilx/static/js/2.40f9f392.chunk.js.map",
+    "index.html": "/nomfilx/index.html",
+    "precache-manifest.aed6ae2b71fb530eff16b5b52a2db5ac.js": "/nomfilx/precache-manifest.aed6ae2b71fb530eff16b5b52a2db5ac.js",
+    "service-worker.js": "/nomfilx/service-worker.js"
+  }
+}
